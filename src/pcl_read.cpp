@@ -1,27 +1,20 @@
 #include <iostream>
 #include <pcl/io/pcd_io.h>
 #include <pcl/point_types.h>
+using namespace std;
 
-int
-main (int argc, char** argv)
+typedef pcl::PointXYZ Point_t;
+
+
+int main( int argc, char** argv)
 {
+    pcl::PointCloud<Point_t>::Ptr input_cloud(new pcl::PointCloud<Point_t>); 
 
-  //READ #1 
-  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>);
-
-  pcl::io::loadPCDFile<pcl::PointXYZ> ("/home/gb/Documents/practice/tabletop.pcd", *cloud); //내부적으로 reader.read() 호출 
-
-  //READ #2
-  //pcl::PointCloud<pcl::PointXYZ> cloud;
-  //pcl::io::loadPCDFile<pcl::PointXYZ>("tabletop.pcd", cloud) //내부적으로 reader.read() 호출 
-
-  //READ #3
-  //pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
-  //pcl::PCDReader reader;
-  //reader.read<pcl::PointXYZ>("tabletop.pcd", cloud);
+    pcl::io::loadPCDFile<Point_t> ("/home/gb/Documents/practice/pcd/tabletop.pcd",*input_cloud);
 
 
-  std::cout << "Loaded " << cloud->width * cloud->height  << std::endl; //cloud_filtered->points.size()
+    cout << "Point number : "<< input_cloud->width * input_cloud->height <<endl; 
+    return 0;
 
-  return (0);
+    
 }

@@ -21,6 +21,12 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+# ##registration에 필요
+include_directories(${PCL_INCLUDE_DIRS})
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
+# ##
+
 add_executable(pcl_read src/pcl_read.cpp)
 target_link_libraries(pcl_read ${catkin_LIBRARIES})
 
@@ -33,3 +39,18 @@ target_link_libraries(pcl_voxel_filter ${catkin_LIBRARIES})
 
 add_executable(pcl_passthrough src/pcl_passthrough.cpp)
 target_link_libraries(pcl_passthrough ${catkin_LIBRARIES})
+
+add_executable(pcl_registration1 src/pcl_registration.cpp)
+target_link_libraries(pcl_registration1 ${catkin_LBRARIES} ${PCL_LIBRARIES})
+
+add_executable(pcl_test src/pcl_test.cpp)
+target_link_libraries(pcl_test ${catkin_LIBRARIES})
+
+add_executable(pcl_translation src/pcl_translation.cpp)
+target_link_libraries(pcl_translation ${catkin_LIBRARIES})
+
+add_executable(pcl_to_topic src/pcl_to_topic.cpp)
+target_link_libraries(pcl_to_topic ${catkin_LIBRARIES})
+
+add_executable(pcl_topic+translation src/pcl_topic+translation.cpp)
+target_link_libraries(pcl_topic+translation ${catkin_LIBRARIES})

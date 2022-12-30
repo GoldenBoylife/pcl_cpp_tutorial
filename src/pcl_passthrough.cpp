@@ -19,7 +19,7 @@ int main(int arg, char** argv)
 
 
     /*파일 읽기*/
-    pcl::io::loadPCDFile<Point_t> ("/home/gb/Documents/practice/tabletop.pcd", *cloud);
+    pcl::io::loadPCDFile<Point_t> ("/home/gb/Documents/practice/pcd/tabletop.pcd", *cloud);
 
 
     /*포인트수 출력*/
@@ -37,7 +37,7 @@ int main(int arg, char** argv)
     std::cout <<"Filtered : " << cloud_filtered->width * cloud_filtered->height << std::endl;
     //포인트 수 출력
 
-    pcl::io::savePCDFile<pcl::PointXYZRGB>("/home/gb/Documents/practice/tabletop_passthrough.pcd", *cloud_filtered);
+    pcl::io::savePCDFile<pcl::PointXYZRGB>("/home/gb/Documents/practice/pcd/tabletop_passthrough.pcd", *cloud_filtered);
 
     return (0);
 

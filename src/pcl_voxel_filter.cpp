@@ -3,17 +3,15 @@
 #include <pcl/point_types.h>
 #include <pcl/filters/voxel_grid.h>
 
-//Downsampling a PointCloud using a VoxelGrid filter
-//http://pointclouds.org/documentation/tutorials/voxel_grid.php#voxelgrid
+typedef pcl::PointXYZ Point_t;
 
-int
-main (int argc, char** argv)
+int main (int argc, char** argv)
 {
-  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>);
-  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
+  pcl::PointCloud<Point_t>::Ptr cloud (new pcl::PointCloud<Point_t>);
+  pcl::PointCloud<Point_t>::Ptr cloud_filtered (new pcl::PointCloud<Point_t>);
 
   // *.PCD 파일 읽기 (https://raw.github.com/PointCloudLibrary/data/master/tutorials/table_scene_lms400.pcd)
-  pcl::io::loadPCDFile<pcl::PointXYZ> ("/home/gb/Documents/practice/table_scene_lms400.pcd", *cloud);
+  pcl::io::loadPCDFile<pcl::PointXYZ> ("/home/gb/Documents/practice/pcd/table_scene_lms400.pcd", *cloud);
 
  // 포인트수 출력
   std::cout << "Input : " << cloud->points.size () << " (" << pcl::getFieldsList (*cloud) <<")"<< std::endl;
@@ -29,6 +27,6 @@ main (int argc, char** argv)
   std::cout << "Output : " << cloud_filtered->points.size () << " (" << pcl::getFieldsList (*cloud_filtered) <<")"<< std::endl;
 
   // 생성된 포인트클라우드 저장 
-  pcl::io::savePCDFile<pcl::PointXYZ>("/home/gb/Documents/practice/table_scene_lms400_downsampled.pcd", *cloud_filtered);
+  pcl::io::savePCDFile<pcl::PointXYZ>("/home/gb/Documents/practice/pcd/table_scene_lms400_downsampled.pcd", *cloud_filtered);
   return (0);
 }

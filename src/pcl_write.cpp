@@ -6,6 +6,7 @@ int
 main (int argc, char** argv)
 {
 
+
   pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>); //SAVE #1
   //#pcl::PointCloud<pcl::PointXYZ> cloud; //SAVE #2
 
@@ -26,7 +27,7 @@ main (int argc, char** argv)
 
 
   //SAVE #1
-  pcl::io::savePCDFile<pcl::PointXYZ>("/home/gb/Documents/practice/test_pcd.pcd", *cloud); //Default binary mode save
+  pcl::io::savePCDFile<pcl::PointXYZ>("/home/gb/Documents/practice/pcd/test_pcd.pcd", *cloud); //Default binary mode save
 
 
   //SAVE #2
