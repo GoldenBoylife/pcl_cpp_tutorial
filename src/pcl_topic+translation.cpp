@@ -29,7 +29,7 @@ int main( int argc, char** argv)
     Eigen::Affine3f transform_2 = Eigen::Affine3f::Identity();
     float theta = M_PI/4;
     // Define a translation of 2.5 meters on the x axis.
-    transform_2.translation() << 50., 0.0, 0.0;
+    transform_2.translation() << 12.5, 0.0, 0.0;
 
 
     // The same rotation matrix as before; theta radians around Z axis
@@ -42,9 +42,7 @@ int main( int argc, char** argv)
     // Print the transformation
     printf ("\nMethod #2: using an Affine3f\n");
     std::cout << transform_2.matrix() << std::endl;
-
-
-    input_cloud_msg->header.frame_id = "pcl_frame";
+    transformed_cloud->header.frame_id = "pcl_frame";
     //frame을 정해줘야 rviz에서 fix해서 볼 수 있음. 
 
     //없어도됨. input_cloud_msg->height = input_cloud_msg->width = 50;

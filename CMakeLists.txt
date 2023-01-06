@@ -3,7 +3,7 @@ project(pcl_cpp_tutorial)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
-set(CMAKE_CXX_FLAGS "-std=c++11")
+set(CMAKE_CXX_FLAGS "-std=c++14") #c++14를써야 chrono_literals 쓸수 있다.
 
 find_package(catkin REQUIRED COMPONENTS
   # pcl
@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   sensor_msgs
 )
-find_package(PCL REQUIRED)
+find_package(PCL 1.5 REQUIRED)
 
 catkin_package(
 )
@@ -54,3 +54,12 @@ target_link_libraries(pcl_to_topic ${catkin_LIBRARIES})
 
 add_executable(pcl_topic+translation src/pcl_topic+translation.cpp)
 target_link_libraries(pcl_topic+translation ${catkin_LIBRARIES})
+
+add_executable(pcl_viewer src/pcl_viewer.cpp)
+target_link_libraries(pcl_viewer ${catkin_LIBRARIES}  pcl_visualization)
+
+add_executable(pcl_registration_pcds src/pcl_registration_pcds.cpp)
+target_link_libraries(pcl_registration_pcds ${catkin_LIBRARIES} pcl_visualization ${PCL_LIBRARIES})
+
+add_executable(pcl_ndt src/pcl_ndt.cpp) 
+target_link_libraries(pcl_ndt ${PCL_LIBRARIES})

@@ -18,12 +18,15 @@ int main(int argc, char** argv)
     
     pcl::VoxelGrid<Point_t> vox_cloud;
     vox_cloud.setInputCloud (input_cloud);
-    vox_cloud.setLeafSize(0.2f, 0.2f, 0.2f); 
+    vox_cloud.setLeafSize(0.4f, 0.4f, 0.4f); 
     vox_cloud.filter(*cloud_filtered);
 
     std::cout << "Output : "<<cloud_filtered->points.size() <<endl;
 
     pcl::io::savePCDFile<Point_t> ("/home/gb/Documents/pcd/merge_route123+orimap23_commonline_Opti2_DownSize0.2_result.pcd", *cloud_filtered);
+    //문서형태로 저장, pcl_viewer로 볼 수 있음.
+    pcl::io::savePCDFileBinary("/home/gb/Documents/pcd/merge_route123+orimap23_commonline_Opti2_DownSize0.2_result_binary.pcd", *cloud_filtered);
+    //binary로 저장, pcl_viewer로 볼 수 있음.
     return (0);
 
     
