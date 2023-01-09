@@ -44,10 +44,13 @@ add_executable(pcl_registration1 src/pcl_registration.cpp)
 target_link_libraries(pcl_registration1 ${catkin_LBRARIES} ${PCL_LIBRARIES})
 
 add_executable(pcl_test src/pcl_test.cpp)
-target_link_libraries(pcl_test ${catkin_LIBRARIES})
+target_link_libraries(pcl_test ${catkin_LIBRARIES} pcl_visualization)
 
 add_executable(pcl_translation src/pcl_translation.cpp)
 target_link_libraries(pcl_translation ${catkin_LIBRARIES})
+
+add_executable(pcl_translation2 src/pcl_translation2.cpp)
+target_link_libraries(pcl_translation2 ${catkin_LIBRARIES}  pcl_visualization)
 
 add_executable(pcl_to_topic src/pcl_to_topic.cpp)
 target_link_libraries(pcl_to_topic ${catkin_LIBRARIES})
@@ -63,3 +66,12 @@ target_link_libraries(pcl_registration_pcds ${catkin_LIBRARIES} pcl_visualizatio
 
 add_executable(pcl_ndt src/pcl_ndt.cpp) 
 target_link_libraries(pcl_ndt ${PCL_LIBRARIES})
+
+add_executable(pcl_gicp2 src/pcl_gicp2.cpp)
+target_link_libraries(pcl_gicp2 ${PCL_LIBRARIES})
+
+add_executable(pcl_gicp3 src/pcl_gicp3.cpp)
+target_link_libraries(pcl_gicp3 ${PCL_LIBRARIES})
+
+add_executable(pcl_gicp4 src/pcl_gicp4.cpp)
+target_link_libraries(pcl_gicp4 ${PCL_LIBRARIES})

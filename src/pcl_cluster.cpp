@@ -7,7 +7,7 @@
 #include <pcl/point_types.h>
 
 #include <pcl/ModelCoefficients.h>
-#include <pcl/io/pcd_io.h>
+#include <pcl/io/pcd_io.h>   //loadPCDFile
 #include <pcl/filters/extract_indices.h>
 #include <pcl/filters/voxel_grid.h>
 #include <pcl/features/normal_3d.h>
@@ -38,7 +38,7 @@ cloud_cb (const sensor_msgs::PointCloud2ConstPtr& input)
   pcl::VoxelGrid<pcl::PointXYZ> vg;
   pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
 
-  /*필터를 왜 할까? */
+  /*필터를 왜 할까? //연산 빠르게 하기위함일듯 */
   vg.setInputCloud (cloud.makeShared());
   vg.setLeafSize (0.01f, 0.01f, 0.01f);
   vg.filter (*cloud_filtered);
@@ -96,7 +96,7 @@ main (int argc, char** argv)
   ros::NodeHandle nh;
 
   // Create a ROS subscriber for the input point cloud
-  ros::Subscriber sub = nh.subscribe ("camera/depth/points", 1, cloud_cb);
+  // ros::Subscriber sub = nh.subscribe ("camera/depth/points", 1, cloud_cb);
 
   // Create a ROS publisher for the output model coefficients
   // pub = nh.advertise<pcl_msgs::ModelCoefficients> ("pclplaneoutput", 1);

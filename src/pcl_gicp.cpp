@@ -53,26 +53,14 @@ void viewer_pcds3(pcl::PointCloud<Point_t>::Ptr patchCloud,pcl::PointCloud<Point
 		viewer_final->spinOnce (100);
 		std::this_thread::sleep_for(100ms);
 	}
-
-
 }
+
 int main(int argc, char** argv)
 {
 	// Objects for storing the point clouds.
 	pcl::PointCloud<Point_t>::Ptr patchCloud(new pcl::PointCloud<Point_t>);
 	pcl::PointCloud<Point_t>::Ptr mainCloud(new pcl::PointCloud<Point_t>);
 	pcl::PointCloud<Point_t>::Ptr finalCloud(new pcl::PointCloud<Point_t>);
-
-
-	// Read two PCD files from disk.
-	// if (pcl::io::loadPCDFile<pcl::PointXYZ>(argv[1], *sourceCloud) != 0)
-	// {
-	// 	return -1;
-	// }
-	// if (pcl::io::loadPCDFile<pcl::PointXYZ>(argv[2], *targetCloud) != 0)
-	// {
-	// 	return -1;
-	// }
 
     // pcl::io::loadPCDFile<Point_t> ("/home/gb/Documents/pcd/ori_commonline_init_1214.pcd", *targetCloud);
     pcl::io::loadPCDFile<Point_t> ("/home/gb/Documents/pcd/piece/ori_commonline_221214_merge_000045.pcd",*patchCloud);

@@ -154,37 +154,5 @@ int main (int argc, char** argv)
 
 	viewer_pcds3(patch_cloud, main_cloud, output_cloud) ;
 
-
-
-  // // Initializing point cloud visualizer
-  // pcl::visualization::PCLVisualizer::Ptr
-  // viewer_final (new pcl::visualization::PCLVisualizer ("3D Viewer"));
-  // viewer_final->setBackgroundColor (0, 0, 0);
-
-  // // Coloring and visualizing target cloud (red).
-  // pcl::visualization::PointCloudColorHandlerCustom<Point_t>
-  // target_color (target_cloud, 255, 0, 0);
-  // viewer_final->addPointCloud<pcl::PointXYZ> (target_cloud, target_color, "target cloud");
-  // viewer_final->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE,
-  //                                                 1, "target cloud");
-
-  // // Coloring and visualizing transformed input cloud (green).
-  // pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ>
-  // output_color (output_cloud, 0, 255, 0);
-  // viewer_final->addPointCloud<Point_t> (output_cloud, output_color, "output cloud");
-  // viewer_final->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE,
-  //                                                 1, "output cloud");
-
-  // // Starting visualizer
-  // viewer_final->addCoordinateSystem (1.0, "global");
-  // viewer_final->initCameraParameters ();
-
-  // // Wait until visualizer window is closed.
-  // while (!viewer_final->wasStopped ())
-  // {
-  //   viewer_final->spinOnce (100);
-  //   std::this_thread::sleep_for(100ms);
-  // }
-
   return (0);
 }
